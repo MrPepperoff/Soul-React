@@ -1,4 +1,21 @@
+@font-face{
+  font-family: Lifehack; /* Гарнитура шрифта */
+  src: url(./fonts/Lifehack.ttf); /* Путь к файлу со шрифтом */
+}
+  
+  
+:root{
+  --f-Lifehack: Lifehack, sans-serif;
+  --primary: 216,80,48;
+  --bg: 243,186,104;
+  --text: 0,0,0;
+  --text-reverse: 231,218,209;
+}
+html{
+  font-size: 10px;
+}
 body {
+  background: rgb(var(--text));
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',

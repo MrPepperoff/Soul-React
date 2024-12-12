@@ -1,0 +1,104 @@
+@import '../../mixin.sass'
+.H
+    min-height: 150px
+    background: rgba(var(--text-reverse), 0.1)
+    box-sizing: border-box
+    &__top
+        display: flex
+        align-items: center
+        flex-direction: row
+    &__logo
+        display: block
+        width: 60%
+        height: auto
+        margin: 0 auto
+.svg
+    width: 30px
+    height: 30px
+    &__background
+        fill: rgb(var(--text-reverse))
+        stroke: rgba(var(--text), .6)
+        stroke-width: 5 
+    &__icon
+        fill: rgba(var(--text), .6)
+.social
+    height: 100%
+    &__list
+        list-style: none
+        padding: 0
+        width: 140px
+        margin: 10px auto 0
+        text-align: center
+        & li
+            display: inline-block
+            margin: 0 1%
+
+.nav
+    &__list
+        list-style: none
+        padding: 4px 0
+        display: flex
+        justify-content: center
+        border-top: 1px solid #fff
+        
+        & li
+            margin: 0 1%
+            & a
+                font-family: var(--f-Lifehack)
+                letter-spacing: 2px
+                font-size: 1.8rem
+                text-decoration: none
+                color: rgb(var(--text-reverse))
+                text-transform: uppercase
+                font-weight: 700
+                transition: 0.1s ease
+                &:hover
+                    color: #fff
+                    text-shadow: 0 0 1px #000, 0 0 5px rgb(var(--primary))
+.contacts
+    & h3
+        color: rgb(var(--primary))
+        margin: 0
+        text-align: center
+        font-size: 1.6rem
+    &__list
+        padding: 0
+        margin: 0
+        list-style: none
+        & li
+            display: inline-block
+            text-align: center
+            width: 50%
+            box-sizing: border-box
+            &:last-child
+                border-left: 1px solid rgb(var(--primary))
+            &:first-child
+                border-right: 1px solid rgb(var(--primary)) 
+        & p
+            margin: 0
+            color: rgb(var(--text-reverse))
+            text-decoration: underline
+            font-weight: 700
+            font-size: 1.4rem
+        & span
+            color: rgb(var(--text-reverse))
+            font-size: 1.4rem
+            & sup
+                display: inline-block
+                
+                margin: 5px 0
+                // border: 1px solid #a00
+                font-size: 1rem
+    &__btn
+        font-size: 1.4rem
+        font-weight: 500
+        display: block
+        color: rgb(var(--text-reverse))
+        text-decoration: none
+        background: rgb(var(--primary))
+        margin: 10px 0 0
+        padding: 5px 20px
+        border-radius: 5px
+        width: 100%
+        box-sizing: border-box
+
