@@ -1,0 +1,99 @@
+@import '../../mixin'
+.products
+    background: rgb(var(--text-reverse))
+    padding:0 0 20px
+    & h2
+        margin: 0
+        padding: 10px 0
+        font-size: 3rem
+        font-family: var(--f-Lifehack)
+        letter-spacing: 4px
+        text-align: center
+        text-transform: uppercase
+        color: rgb(var(--text))
+.card
+    background: rgb(var(--bg))
+    color: rgb(var(--text))
+    margin: 0 10px
+    border-radius: 20px
+    padding-bottom: 15px 
+    overflow: hidden
+    &_disable
+        position: relative
+        background: #999
+        color: #fff
+        &::after
+            z-index: 5
+            content: 'нет в наличии'
+            color: #f00
+            padding: 210px 0
+            position: absolute
+            inset: 0.1rem
+            opacity: 1
+            font-size: 2rem
+            font-family: var(--f-Rubik)
+            background: rgba(var(--text), .6)
+            text-align: center
+    &__btn
+        user-select: none
+        position: relative
+        z-index: 2
+        border-radius: 50%
+        border: 0
+        color: rgb(var(--text-reverse))
+        background: rgba(var(--primary), 1)
+        font-size: 2rem
+        width: 4rem
+        height: 4rem
+        transition: 0.1s ease
+        overflow: hidden
+        &::after
+            z-index: -10
+            content: ''
+            position: absolute
+            inset: 0
+            transition: 0.1s ease
+
+        &:active
+            box-shadow: inset 0 0 5px rgba(50,50,50)
+            &::after
+                background: rgba(50,50,50, .3)
+    &__text
+        padding: 0 15px 
+        display: flex
+        justify-content: space-between
+        &__left
+            width: 70%
+            font-size: 1.2rem
+        &__right
+            text-align: end
+            font-size: 1.4rem
+            font-weight: 700
+            width: 30%
+        &Top
+            display: flex
+            justify-content: space-between
+            align-items: center
+            padding: 0 15px
+    &__price
+        font-weight: 700
+        font-size: 1.6rem
+        width: 30%
+        text-align: end
+        &::after
+            content: '\20BD'
+    &__title
+        font-size: 1.6rem
+        font-family: var(--f-Rubik)
+        width: 80%
+    &__img
+        width: 100%
+        height: 100%
+        object-fit: cover
+        &__wrap
+            height: 200px 
+    @include xxl
+        width: 33%
+    &__list
+        display: flex
+        justify-content: space-between

@@ -1,42 +1,85 @@
 @import '../../mixin.sass'
 .H
-    min-height: 150px
-    background: rgba(var(--text-reverse), 0.1)
-    box-sizing: border-box
+    display: flex
+    flex-direction: column
+    height: 100wh
+    background: url('../../images/background.jpg') top center repeat
+    background-size: cover 
+    &::after
+        position: absolute
+        inset: 0
+        overflow: hidden
+        z-index: -10
+        opacity: 0.2
+        content: ''
+        // background: url('../../images/background.jpg') top center repeat
+        // background-size: cover  
+        
+        
     &__top
+        background: rgba(var(--text-reverse), 0.1)
         display: flex
+        min-height: 150px
         align-items: center
         flex-direction: row
+        background: rgba(0, 0, 0, .8)
+        &__wrap
+            display: flex
+            align-items: center
+            flex-direction: row
+    &__center
+        background: rgba(var(--text-reverse), 0.1)
+        background: rgba(0, 0, 0, .8)
+    &__bottom
+        color: rgb(var(--text-reverse))
+        background: rgba(0, 0, 0, .6)
+        flex-grow: 1
+        &__wrap
+            display: flex
+            justify-content: space-between
+        &__item
+            margin-top: 60px
+            padding: 0 15px
+            &__flex
+                display: flex
+                align-items: center
+            & h2
+                font-size: 2rem
+                font-family: var(--f-Rubik)
+            & svg
+                fill: rgb(var(--text-reverse))
+                padding: 0 10px
+            &:first-child
+                font-size: 1.6rem
+                & ul
+                    list-style: none
+                    padding: 0
+                    & li
+                        margin: 10px 0
+                        &::before
+                            position: relative
+                            top: 5px
+                            content: url('../../images/pin.svg')
+                            padding-right: 5px        
+        & h1
+            margin-top: 0px
+            margin-bottom: 0 
+            font-size: 6rem
+            font-family: var(--f-Lifehack)
+            text-shadow: 0 0 10px #000, 0 0 10px #000
     &__logo
         display: block
-        width: 60%
-        height: auto
+        width: 40%
+        box-sizing: border-box
         margin: 0 auto
-.svg
-    width: 30px
-    height: 30px
-    &__background
-        fill: rgb(var(--text-reverse))
-        stroke: rgba(var(--text), .6)
-        stroke-width: 5 
-    &__icon
-        fill: rgba(var(--text), .6)
 .social
     height: 100%
-    &__list
-        list-style: none
-        padding: 0
-        width: 140px
-        margin: 10px auto 0
-        text-align: center
-        & li
-            display: inline-block
-            margin: 0 1%
 
 .nav
     &__list
         list-style: none
-        padding: 4px 0
+        padding: 0
+        margin: 0
         display: flex
         justify-content: center
         border-top: 1px solid #fff
@@ -51,44 +94,45 @@
                 color: rgb(var(--text-reverse))
                 text-transform: uppercase
                 font-weight: 700
-                transition: 0.1s ease
+                transition: 0.3s ease
                 &:hover
-                    color: #fff
-                    text-shadow: 0 0 1px #000, 0 0 5px rgb(var(--primary))
+                    color: rgb(var(--primary))
+                &:active
+                    color: rgba(var(--primary), .5)
 .contacts
     & h3
-        color: rgb(var(--primary))
+        color: rgb(var(--text-reverse))
+        background: rgb(var(--primary))
+        border-radius: 0 0 10px 10px
         margin: 0
         text-align: center
         font-size: 1.6rem
     &__list
+        display: flex
+        flex-direction: column
         padding: 0
         margin: 0
         list-style: none
         & li
             display: inline-block
             text-align: center
-            width: 50%
             box-sizing: border-box
-            &:last-child
-                border-left: 1px solid rgb(var(--primary))
-            &:first-child
-                border-right: 1px solid rgb(var(--primary)) 
-        & p
-            margin: 0
-            color: rgb(var(--text-reverse))
-            text-decoration: underline
-            font-weight: 700
-            font-size: 1.4rem
-        & span
-            color: rgb(var(--text-reverse))
-            font-size: 1.4rem
-            & sup
-                display: inline-block
-                
-                margin: 5px 0
-                // border: 1px solid #a00
-                font-size: 1rem
+            padding: 0 10px
+    & p
+        margin: 0
+        color: rgb(var(--text-reverse))
+    &__day
+        margin: 0
+        text-decoration: underline
+        font-weight: 700
+        font-size: 1.4rem
+
+    &__time 
+        font-size: 1.4rem
+        & sup
+            display: inline-block
+            margin: 5px 0
+            font-size: 1rem
     &__btn
         font-size: 1.4rem
         font-weight: 500
@@ -102,3 +146,35 @@
         width: 100%
         box-sizing: border-box
 
+.address
+    margin: 30px 0
+    text-shadow: 0 0 10px #000, 0 0 10px #000
+    &__title
+        margin: 0
+        padding: 0
+    &__list
+        margin: 0
+        padding: 10px
+        & li
+            margin: 0 !important
+            padding: 0
+.title
+    font-size: 2rem
+    & span
+        display: block
+.list
+    padding: 0
+    font-size: 1.4rem
+    list-style: none
+    font-weight: 700
+    & li
+        margin: 5px 0
+.text
+    &__first
+        margin: 10px 0
+        font-size: 2.8rem
+        letter-spacing: 0.2rem
+        font-family: var(--f-Lifehack)
+        text-shadow: 0 0 10px #000, 0 0 10px #000
+        & span
+            display: block

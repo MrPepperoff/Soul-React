@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 @font-face{
   font-family: Lifehack; /* Гарнитура шрифта */
   src: url(./fonts/Lifehack.ttf); /* Путь к файлу со шрифтом */
@@ -5,6 +6,7 @@
   
   
 :root{
+  --f-Rubik: "Rubik", sans-serif;
   --f-Lifehack: Lifehack, sans-serif;
   --primary: 216,80,48;
   --bg: 243,186,104;
@@ -13,9 +15,11 @@
 }
 html{
   font-size: 10px;
+  font-family: var(--f-Rubik);
 }
 body {
   background: rgb(var(--text));
+  color: rgb(var(--text-reverse));
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
