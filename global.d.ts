@@ -6,7 +6,7 @@ declare module '*.sass'{
     };
     export = content;
 }
-
+// остальные привязки
 declare module '*.svg';
 declare module '*.png';
 declare module '*.jpg';

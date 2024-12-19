@@ -2,7 +2,7 @@ import React from "react";
 import style from './Header.module.sass';
 // иконки
 import logo from '../../images/logo-2.svg';
-import Social from "../Social/Social.tsx";
+import Social from "../Social/Social";
 export default function Header(){
     return(
         <header className={style.H}>

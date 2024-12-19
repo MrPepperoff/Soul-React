@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.sass';
 import { Routes, Route } from 'react-router-dom';
-import Home from './Pages/Home/Home.tsx';
+import Home from './Pages/Home/Home';
 
 
 export default function App() {
