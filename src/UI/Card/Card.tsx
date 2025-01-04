@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import style from './Card.module.sass';
 
 type Product={
-     
         id: number;
         title: string;
         link: string;
@@ -21,13 +20,38 @@ type Product={
         sub_category?: number;
         queue: number;
     };
-
 type propsCard = {
     products: Product[],
     category: number,
     sub_category: number,
 };
 
+
+
+if(!localStorage.getItem('product')){
+    localStorage.setItem('product', '[]');
+}
+
+function onPluse(category: number, id: number){
+    const productString = localStorage.getItem('product') ?? '[]';
+    let cartLocal = JSON.parse(productString);
+
+    // Флаг для отслеживания, был ли найден элемент
+    let found = false;
+    
+    cartLocal.forEach((element: any) => {
+
+        if(element.category == category && element.id == id){
+            element.count += 1;
+            found = true;
+        }
+    });
+    // Если элемент не был найден, добавляем новый продукт с счетчиком
+    if (!found) {
+        cartLocal.push({ category, id, count: 1 }); // Устанавливаем count на 1 для нового продукта
+    }
+    localStorage.setItem('product', JSON.stringify(cartLocal))
+}
 export function Card(props: propsCard){
     let products = props.products;
     let category = props.category;
@@ -50,7 +74,7 @@ export function Card(props: propsCard){
                     </div>
                     <div className={style.card__text__right}>
                         <p>{product.weight}г</p>
-                        <button className={style.card__btn}>+</button>
+                        <button className={style.card__btn} onClick={(event)=>onPluse(2, product.id)}>+</button>
                     </div>
                 </div>    
             </div>
@@ -85,7 +109,7 @@ export function CardSet(props: propsCard){
                     </div>
                     <div className={style.card__text__right}>
                         <p>Вес: {product.weight}г</p>
-                        <button className={style.card__btn}>+</button>
+                        <button className={style.card__btn} onClick={(event)=>onPluse(1, product.id)}>+</button>
                     </div>
                 </div>    
             </div>
@@ -144,7 +168,7 @@ export function CardDich(props: propsCard){
                     <div className={style.card__text__right}>
                         <p>{(Array.isArray(product.weight))? `${product.weight[count]} шт`:` ${product.weight} г`}</p>
                         
-                        <button className={style.card__btn}>+</button>
+                        <button className={style.card__btn} onClick={(event)=>onPluse(3, product.id)}>+</button>
                     </div>
                 </div>    
             </div>

@@ -1,10 +1,60 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import style from './CardBtn.module.sass';
 
+const useLocalStorageObserver = (key : any) => {
+    const [value, setValue] = useState(() => {
+        const storedValue = localStorage.getItem(key);
+        return storedValue ? JSON.parse(storedValue) : null;
+    });
+
+    useEffect(() => {
+        const handleStorageChange = (event : any) => {
+            if (event.key === key) {
+                const newValue = event.newValue ? JSON.parse(event.newValue) : null;
+                setValue(newValue);
+            }
+        };
+
+        window.addEventListener('storage', handleStorageChange);
+
+        // Очистка при размонтировании компонента
+        return () => {
+            window.removeEventListener('storage', handleStorageChange);
+        };
+    }, [key]);
+
+    return [value, setValue];
+};
+
+
+
+
+
 export default function CartBtn(){
+
+    let [products, setProducts] = useLocalStorageObserver('product');
+    let count = 0;
+
+
+    // (products)?
+    //     products.forEach((element: any) => {
+    //         count += element.count
+    //     })
+    //     :
+    //     ''
+
+
+    // включение модального окна
+    function onModal(){
+        const modal = document.querySelector('#modal');
+        modal?.classList.add('active')
+
+        console.log(products);
+    }
+    
     return(
         <div className={style.cart__wrap+" content"}>
-            <a href="#" className={style.cart}>
+            <button type='button' className={style.cart} onClick={onModal}>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 716 116" className={style.icon}>  
                     <g className={style.icon__wrap}>
                         <path d="
@@ -12,8 +62,8 @@ export default function CartBtn(){
                         "/>    
                     </g>
                 </svg>
-                <span>99+</span>
-            </a>    
+                <span>{(count < 100 )? count : '99+'}</span>
+            </button>    
         </div>
         
     );

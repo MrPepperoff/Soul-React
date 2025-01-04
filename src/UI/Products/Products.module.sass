@@ -5,9 +5,21 @@
     font-family: var(--f-Lifehack)
     text-transform: uppercase
 .sub__title
-    text-align: start
+    text-align: center
     font-family: var(--f-Lifehack)
     font-size: 3rem
+    display: inline-block
+    &__text
+        display: flex
+        align-items: center
+        & svg
+            display: block
+            fill: rgb(var(--primary))
+            width: 3.4rem
+            height: 3.4rem
+            padding-right: 1rem 
+            padding-left: 1rem
+            // background: #a00
     &__wrap
         display: flex
         align-items: center
@@ -16,8 +28,13 @@
         width: 93%
         box-sizing: border-box
         height: 2px
-        background: linear-gradient(0.75turn, transparent, rgba(var(--primary), .7))
+        
         border-radius: 4px
+        &:first-child
+            background: linear-gradient(0.75turn, rgba(var(--primary), .7), transparent)
+        &:last-child
+            background: linear-gradient(0.75turn, transparent, rgba(var(--primary), .7))
+            
     // &::after
     //     content:''
     //     position: relative

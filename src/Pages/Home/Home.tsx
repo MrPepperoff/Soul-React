@@ -4,14 +4,16 @@ import Header from "../../UI/Header/Header";
 import NewProducts from "../../UI/NewProducts/NewProducts";
 import Products from "../../UI/Products/Products";
 import Footer from "../../UI/Footer/Footer";
-import CartBtn from "../../UI/CartBtn/CartBtn";
+import CartModal from "../../widgets/Cart/CartModal/CartModal";
+
 
 
 export default function Home(){
     return(
         <div className={style.home}>
-            <CartBtn/>
             <Header />
+            
+            <CartModal/>
             <NewProducts />
             <Products/>
 
